@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Fat or Not</title>
+
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3zf6GJ2l6-twXq_OZJmC7TfvKwVcDR7c&libraries=places"></script>
+<script src="assets/javascript/app.js"></script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCozEKhbvuQ5eFMiYc9hQcBlHVITfOAYL8&callback=initMap"
+    async defer></script> -->
+<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3zf6GJ2l6-twXq_OZJmC7TfvKwVcDR7c
+&libraries=places"></script> -->
+
+</head>
+
+<body>
+
+<form>
+      <span id="todo-item">Your location:<input id="location-input" type="text" ><input id="search-address" value="Next" type="submit"></span>
+    </form>
+<div id="map"></div>
+
+
+<button id="food" value="wendys">Click for closest Wendy's</button>
+<button id="food" value="burger-king">Click for closest Burger King</button>
+<button id="food" value="applebees">Click for closest Applebee's</button>
+<button id="food" value="tacobell">Click for closest Taco Bell</button>
+</body>
+
+
+</html>
+
+  

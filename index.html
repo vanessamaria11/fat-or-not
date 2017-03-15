@@ -1,48 +1,133 @@
+
+
 <!DOCTYPE html>
-
 <html lang="en-us">
-
-<head>
-
-  <meta charset="UTF-8">
-  <title>Fat or Not</title>
-
-  <link rel="stylesheet" href="assets/css/reset.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  
-  <style>
-       #map {
-        height: 400px;
-        width: 100%;
-       }
-    </style>
-
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3zf6GJ2l6-twXq_OZJmC7TfvKwVcDR7c&libraries=places"></script>
-<script src="assets/javascript/app.js"></script>
-<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCozEKhbvuQ5eFMiYc9hQcBlHVITfOAYL8&callback=initMap"
-    async defer></script> -->
-<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3zf6GJ2l6-twXq_OZJmC7TfvKwVcDR7c
-&libraries=places"></script> -->
-
+	<head>
+		<meta charset="UTF-8">
+		<title>Fat or Not</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+		 <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 </head>
 
-<body>
+	</head>
+	<style type="text/css">
+		#background{
+		background-color: black;
+/*
+		 url('Everything/images/Fat-or-not.png');
+		background-repeat: no-repeat;
+		background-position: center; */
+		/*background-size: cover;*/
+		/*height: 100vh;*/
+		}
+		.main-buttons {
+			margin-top:20vh;
+		}
+		.main-buttons:hover{
+			opacity: 0.5;
+			width: 70%;
+			height: 70%;
+		}
+		h1{
+			font-size: 10vh;
+			font-family: 'Lobster', serif;
+			color: yellow;
+			text-align: center;
+			padding-bottom: 10px;
+		}
+		#fat-or-not{
+			border: solid lightyellow 2px;
+			/*margin:20px 10px 0px 150px ;*/
+			/*margin: 100px;*/
+			text-align: center;
+		}
 
-<form>
-      <span id="todo-item">Your location:<input id="location-input" type="text" ><input id="search-address" value="Next" type="submit"></span>
-    </form>
-<div id="map"></div>
+		.slide-show{
+			/*width: 75vw;
+			height: 50vh;*/
+			border: solid lightyellow 2px;
+			/*margin: 0px 10px 0px 10px;*/
+		}
 
+		#firstFat{
+			/*margin: 20px 10px 0px 150px;*/
+		}
 
-<button id="food" value="wendys">Click for closest Wendy's</button>
-<button id="food" value="burger-king">Click for closest Burger King</button>
-<button id="food" value="applebees">Click for closest Applebee's</button>
-<button id="food" value="tacobell">Click for closest Taco Bell</button>
-</body>
+		#secondPageload{
+			color: blue;
+			font-size: 30vh;
+			text-align: center;
+		}
+		
+		#dancingDog{
+			height: 90vh;
+			text-align: center;
+			margin: 0px auto;
+		}
+		#Happydance{
+			font-size:80px;
+			color: lightgreen;
+			text-align: center;
+		}
+		#mobile-image{
+			display: block;
+		}
 
+		#mobile-header{
+			margin: 2vw auto;
+			border: solid lightyellow 2px;
+		}
 
+	</style>
+	<body id="background">
+		<div class="container">
+		<div class="row">
+		<!-- 	<div class="col-lg-offset-4 col-lg-8 col-md-offset-4 col-md-offset-8 col-sm-offset-8 col-xs-8"> -->
+				<h1 id="pageTitle"><strong>Choose your fate</strong></h1>
+				<img id="mobile-header" src="Everything/images/mobile-friendly-header.png" class="visible-xs-block img-responsive">
+				<div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+					<img class="slide-show img-responsive" id="fatslide">
+					<div id="fatGifs" class="main-buttons">
+						<input type="image" src="Everything/images/chubby-sp.png" name="saveForm" class="btTxt submit img-responsive" id="FAT">
+					</div>
+				</div>
+				<div class="hidden-xs col-sm-offset-2 col-sm-4 col-md-offset-2 col-md-4 col-lg-offset-2 col-lg-4">
+				<img id="fat-or-not" src="Everything/images/Fat-or-not.png" class="img-responsive">
+				</div>
+				<div class="col-xs-6 col-sm-offset-2 col-sm-2 col-md-offset-2 col-md-2 col-lg-offset-2 col-lg-2">
+				<!-- <div class="row main-buttons"> -->
+				<div class="slide-show" id="skinnySlideShow">slide show</div>
+					<div id="garfield-message"></div>
+					<div id="skinnyGifs" class="main-buttons">
+						<input type="image" src="Everything/images/popeye-healthy.png" name="saveForm" class="btTxt submit img-responsive" id="SKINNY" />
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+		<h1 id="secondPageload">Are you sure?</h1>
+		<div class="container">
+		<div class="row">
+			<div class="col-xs-offset-3 col-xs-6 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-8 col-lg-offset-4 col-lg-8">
+		<img id="firstFat" src="https://68.media.tumblr.com/17bdec4d770449147486f7ff6225539c/tumblr_nl2jw7d0oY1qbxi45o1_500.gif"class="img-responsive">
+		<div class="locationInfo">
+			 <span id="todo-item">Your location:<input id="location-input" type="text" ><input id="search-address" value="Next" type="submit"></span>
+		</div>
+	</div>
+		<div class="col-xs-offset-2 col-xs-8 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+		<h1 id="Happydance">Happy Dance Time!</h1>
+		</div>
+		<div class="col-xs-offset-3 col-xs-6 col-sm-offset-3 col-sm-6 col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6">
+		<img id="dancingDog" src="http://media4.giphy.com/media/vF25I06jdODgA/giphy.gif" class="img-responsive">
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+	</div>
+	</div>
+		</div>
+	</div>
+		 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+		<script type="text/javascript" src = "logic.js"></script>
+	</body>
 </html>
 
-  
