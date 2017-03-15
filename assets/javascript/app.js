@@ -1,3 +1,42 @@
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDxpP498tRbmDXeBZH0DlG_EjMd3gS6I5E",
+    authDomain: "fat-or-not.firebaseapp.com",
+    databaseURL: "https://fat-or-not.firebaseio.com",
+    storageBucket: "fat-or-not.appspot.com",
+    messagingSenderId: "164543154578"
+  };
+  firebase.initializeApp(config);
+
+
+  var user = firebase.auth().currentUser;
+  var name, email, photoUrl, uid, emailVerified;
+
+  if (user != null) {
+    name = user.displayName;
+    email = user.email;
+    photoUrl = user.photoURL;
+    emailVerified = user.emailVerified;
+    uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
+                     // this value to authenticate with your backend server, if
+                     // you have one. Use User.getToken() instead.
+  }
+
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+    } else {
+      // No user is signed in.
+    }
+  });
+
+
+
+
+
+
+
+
   //create variable that will hold the address, geocoding URL, and map.
   var geoURL;
   var map;
