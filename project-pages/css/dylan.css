@@ -1,0 +1,76 @@
+body{
+	
+	font-family: 'Indie Flower', cursive;
+	text-align: center;
+	font-weight: bold;
+}
+
+#content { 
+  overflow:auto; 
+
+} 
+
+#left, #right { 
+  width: 40%; 
+  background: white; 
+} 
+
+#left  { float:left;  }
+#right { float:right; } 
+
+#display-food{
+
+
+}
+
+#image-1, #image-2, #image-3{
+	padding: 25px 25px 25px 25px;
+}
+
+#menu-head{
+	background-color: transparent;
+	border: none;
+	font-family: 'Indie Flower', cursive;
+	font-size: 25px;
+	transition: all .2s ease-in-out;
+
+}
+
+#menu-head-2{
+	background-color: transparent;
+	border: none;
+	font-family: 'Indie Flower', cursive;
+	font-size: 25px;
+	transition: all .2s ease-in-out;
+
+}
+
+
+#menu-head:hover{
+	transform: scale(1.1); 
+}
+
+#menu-head-2:hover{
+	transform: scale(1.1); 
+}
+
+
+.food-button{
+	background-color: transparent;
+	border: none;
+	transition: all .2s ease-in-out;
+}
+
+.food-button:hover{
+	transform: scale(1.1); 
+}
+
+.rounded-image{
+	display: inline-block;
+	border-radius: 10vw;
+}
+
+.small-image{
+	height: 500px;
+	width: 750px;
+}
