@@ -11,6 +11,7 @@
 
   var user = firebase.auth().currentUser;
   var name, email, photoUrl, uid, emailVerified;
+  var eating_array = [];
 
   if (user != null) {
     name = user.displayName;
@@ -25,13 +26,46 @@
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
+
+      //make sign out button visible
     } else {
       // No user is signed in.
+
+      //make sign up/sign in visible
     }
   });
 
+  $(document).on("click","#signup", function() {
+  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // ...
+  });
 
 
+});
+
+  $(document).on("click","#signin", function() {
+  firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+  });
+
+  user = firebase.auth().currentUser;
+
+  if (user != null) {
+    name = user.displayName;
+    email = user.email;
+    photoUrl = user.photoURL;
+    emailVerified = user.emailVerified;
+    uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
+                     // this value to authenticate with your backend server, if
+                     // you have one. Use User.getToken() instead.
+  }
+});
 
 
 
