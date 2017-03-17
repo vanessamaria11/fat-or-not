@@ -1,14 +1,3 @@
-  var config = {
-    apiKey: "AIzaSyBw6fC9f9-X1SixpkDqMLKh3a361mQGa_o",
-    authDomain: "group-project-b78cb.firebaseapp.com",
-    databaseURL: "https://group-project-b78cb.firebaseio.com",
-    storageBucket: "group-project-b78cb.appspot.com",
-    messagingSenderId: "815549298774"
-  };
-  firebase.initializeApp(config);
-
-var database = firebase.database();
-
 $(document).ready(function(){
 	$("#FAT").show();
 	$("#firstFat").hide();
@@ -20,8 +9,13 @@ $(document).ready(function(){
 	$("#Happydance").hide();
 	$("#dancingDog").hide();
 	$(".locationInfo").hide();
+	$("#goBack").hide();
+	$(".options").hide();
 	startSlideShow();
-	// changeSkinnyDisplay();
+	$("#healthy-choices-page").hide();
+	$("#myBtn").click(function(){
+			$("#myModal").modal();
+			})
 })
 
 
@@ -39,11 +33,12 @@ $("#FAT").on('click', function(event){
 	$("#firstFat").show();
 	$("#pageTitle").hide();
 	$("#secondPageload").show();
+	$("#myBtn").hide();
+	$(".options").show();
 });
 
 $("#SKINNY").on('click', function(event){
 	event.preventDefault();
-	alert("im skinny!");
 	$("#FAT").hide();
 	$("#SKINNY").hide();
 	$("body").css("background", "black");
@@ -55,6 +50,8 @@ $("#SKINNY").on('click', function(event){
 	$("#dancingDog").show();
 	$("#Happydance").show();
 	$(".locationInfo").show();
+	$("#goBack").hide();
+	$("#healthy-choices-page").show();
 });
 
 var slideShowImages=["Everything/images/skinnyslideshow1.png","Everything/images/skinnyslideshow2.png", "Everything/images/skinnyslideshow3.png"];
@@ -131,4 +128,3 @@ $("#skinnyGifs").on('mouseover', function(){
 $("#skinnyGifs").on('mouseout', function(){
 	music2.pause();
 })
-
