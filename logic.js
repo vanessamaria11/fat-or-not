@@ -12,6 +12,8 @@ $(document).ready(function(){
 	$("#goBack").hide();
 	$(".options").hide();
 	startSlideShow();
+	$("#findlocation").hide();
+	$("#userlocation").hide();
 	$("#healthy-choices-page").hide();
 	$("#myBtn").click(function(){
 			$("#myModal").modal();
@@ -35,6 +37,8 @@ $("#FAT").on('click', function(event){
 	$("#secondPageload").show();
 	$("#myBtn").hide();
 	$(".options").show();
+	$("#findlocation").show();
+	$("#userlocation").show();
 });
 
 $("#SKINNY").on('click', function(event){
@@ -52,6 +56,9 @@ $("#SKINNY").on('click', function(event){
 	$(".locationInfo").show();
 	$("#goBack").hide();
 	$("#healthy-choices-page").show();
+	$("#myBtn").hide();
+	$("#findlocation").show();
+	$("#userlocation").show();
 });
 
 var slideShowImages=["Everything/images/skinnyslideshow1.png","Everything/images/skinnyslideshow2.png", "Everything/images/skinnyslideshow3.png"];

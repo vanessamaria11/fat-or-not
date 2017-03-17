@@ -24,8 +24,7 @@
 		}
 		.main-buttons:hover{
 			opacity: 0.5;
-			width: 70%;
-			height: 70%;
+			transform: scale(1.1);
 		}
 		/*h1{
 			font-size: 10vh;
@@ -83,6 +82,7 @@
   		}
 
   		.typewriter{
+  			/*width:80%;*/
 			font-family: 'Lobster', serif;
 			padding-bottom: 10px;
 			color: yellow;
@@ -91,7 +91,7 @@
   			overflow: hidden;
   			border-right: .15em solid black;
   			white-space: nowrap;
-  			margin: 0 auto;
+  			margin: 0;
   			letter-spacing: .10em;
   			animation: 
    			typing 3.5s steps(40, end),
@@ -99,7 +99,7 @@
   		}
   		@keyframes typing {
   		from { width: 0 }
-  		to { width: 80% }
+  		to { width: 100% }
 		}
 
 		/* The typewriter cursor effect */
@@ -114,6 +114,18 @@
 			height: 10vh;
 			margin-left: 20%;
 		}
+		#pageTitle{
+			margin: 0px;
+			padding: 0px;
+			font-size: 10vh;
+			position: relative;
+			text-align: center;
+		}
+		@media screen and (max-width: 900px) and (min-width: 80px)
+		{
+
+           font-size:1vw;
+		}
 
 	</style>
 
@@ -122,7 +134,13 @@
   <!-- Trigger the modal with a button -->
 		<div class="row">
 		<!-- 	<div class="col-lg-offset-4 col-lg-8 col-md-offset-4 col-md-offset-8 col-sm-offset-8 col-xs-8"> -->
-				<h1 class="typewriter" id="pageTitle"><strong>Choose your fate</strong></h1>
+			<!-- 	<div class="col-xs-offset-2 col-xs-8 col-sm-12 col-md-12 col-lg-12"> -->
+				<div class="typewriter" id="pageTitle"><strong>Choose your fate</strong></div>
+			<!-- 	<div class="col-xs-2 col-sm-12 col-md-12 col-lg-12">
+				</div> -->
+<!-- 			</div> -->
+		</div>
+				<div class="row">
 				<img id="mobile-header" src="Everything/images/mobile-friendly-header.png" class="visible-xs-block img-responsive img-rounded">
 				<div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
 					<img class="slide-show img-responsive" id="fatslide">
@@ -134,22 +152,34 @@
 				<img id="fat-or-not" src="Everything/images/Fat-or-not.png" class="img-responsive img-rounded">
 		<div id="map"></div>
 <img id="findlocation" src="Everything/images/where-are-you.png" class="img-responsive img-rounded"/>
-	<form>
-      <span id="todo-item">Your location:<input id="location-input" type="text"><input id="search-address" value="Next" type="submit"></span>
-      <a href="maptest.html"></a>
+<div id="userlocation">
+	<form action="maptest.html" method="get">
+      <span id="todo-item">Your location:<input name="location-input" id="location-input" type="text"><input id="search-address" value="Next" type="submit"></span>
     </form>
-<div id="map"></div> 
-<button type="button" class="btn btn-default btn-lg" id="myBtn">Login</button>
-  <!-- Modal -->
+   </div>
+				</div>
+				<div class="col-xs-6 col-sm-offset-2 col-sm-2 col-md-offset-2 col-md-2 col-lg-offset-2 col-lg-2">
+				<!-- <div class="row main-buttons"> -->
+				<div class="slide-show" id="skinnySlideShow">slide show</div>
+					<div id="skinnyGifs" class="main-buttons">
+						<input type="image" src="Everything/images/popeye-healthy.png" name="saveForm" class="btTxt submit img-responsive" id="SKINNY" />
+					</div>
+				</div>
+			</div>
+		</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-offset-6 col-xs-6 col-offset-sm-6 col-xs-6 col-offset-md-6 col-md-6 col-offset-6 col-lg-6">
+				<button type="button" class="btn btn-default btn-lg" id="myBtn">Login</button>
+			</div>
+		</div>
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-    
-      <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header" style="padding:35px 50px;">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
-        </div>
+       		 </div>
         <div class="modal-body" style="padding:40px 50px;">
           <form role="form">
             <div class="form-group">
@@ -175,14 +205,8 @@
       
     </div>
   </div> 
-				</div>
-				<div class="col-xs-6 col-sm-offset-2 col-sm-2 col-md-offset-2 col-md-2 col-lg-offset-2 col-lg-2">
-				<!-- <div class="row main-buttons"> -->
-				<div class="slide-show" id="skinnySlideShow">slide show</div>
-					<div id="skinnyGifs" class="main-buttons">
-						<input type="image" src="Everything/images/popeye-healthy.png" name="saveForm" class="btTxt submit img-responsive" id="SKINNY" />
-					</div>
-				</div>
+</div>
+</div>
 			</div>
 			</div>
 		</div>
@@ -194,11 +218,12 @@
 		<div class="row">
 			<div class="col-xs-offset-3 col-xs-6 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-8 col-lg-offset-4 col-lg-8">
 		<img id="firstFat" src="https://68.media.tumblr.com/17bdec4d770449147486f7ff6225539c/tumblr_nl2jw7d0oY1qbxi45o1_500.gif"class="img-responsive img-rounded">
+
 <!-- added from Ralphs file -->
 <!-- end -->
 	</div>
-		<div class="col-xs-offset-2 col-xs-8 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
-		<h1 id="Happydance">Happy Dance Time!</h1>
+		<div class=" col-xs-12 col-sm-12 col-md-12 col-lg-offset-2 col-lg-8">
+		<h1 id="Happydance" class="typewriter">Happy Dance Time!</h1>
 		</div>
 		<div class="col-xs-offset-3 col-xs-6 col-sm-offset-3 col-sm-6 col-md-offset-3 col-md-6 col-lg-offset-3 col-lg-6">
 		<img id="dancingDog" src="http://media4.giphy.com/media/vF25I06jdODgA/giphy.gif" class="img-responsive img-rounded">
@@ -212,4 +237,3 @@
 <script type="text/javascript" src = "logic.js"></script>
 	</body>
 </html>
-
